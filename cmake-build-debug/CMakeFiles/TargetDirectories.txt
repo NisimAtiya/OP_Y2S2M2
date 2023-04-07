@@ -1,0 +1,3 @@
+/Users/nisimatiya/Desktop/מדעי המחשב/clion/Operating Systems/OP_Y2S2M2/cmake-build-debug/CMakeFiles/OP_Y2S2M2.dir
+/Users/nisimatiya/Desktop/מדעי המחשב/clion/Operating Systems/OP_Y2S2M2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nisimatiya/Desktop/מדעי המחשב/clion/Operating Systems/OP_Y2S2M2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
