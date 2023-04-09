@@ -4,4 +4,4 @@ project(OP_Y2S2M2 C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(OP_Y2S2M2
-        cmp.c)
+        cmp.c copy.c)
