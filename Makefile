@@ -2,7 +2,7 @@ CC = gcc
 all: cmp copy
 
 copy:
-	cc copy copy.c
+	cc -o copy copy.c
 
 cmp:
 	cc -o cmp cmp.c
