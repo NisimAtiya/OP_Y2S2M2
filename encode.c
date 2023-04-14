@@ -35,7 +35,16 @@ int main(int argc, char** argv) {
         fprintf(stderr, "%s\n", dlerror());
         return 1;
     }
-    (*func)(argv[3]);
-    return 1;
+
+    char* temp = (char*)malloc(strlen(argv[3]));
+    if(temp==NULL){
+        printf("error");
+        return 1;
+    }
+    strcpy(argv[3],temp);
+    (*func)(temp);
+    printf("%s",temp);
+    free(temp);
+    return 0;
 }
 

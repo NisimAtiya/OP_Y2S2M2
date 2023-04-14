@@ -4,13 +4,7 @@
 #include <stdlib.h>
 #include <dlfcn.h>
 
-char* encode(char *string){
-    char* temp = (char*)malloc(strlen(string));
-    if(temp==NULL){
-        printf("error");
-        return "";
-    }
-    strcpy(temp,string);
+char* encode(char *temp){
     for (int i = 0; i<strlen(temp); i++) {
         if(temp[i] >= 'A' && temp[i] <= 'Z') {
             temp[i] = tolower(temp[i]);
@@ -21,13 +15,8 @@ char* encode(char *string){
     }
     return temp;
 }
-char* decode(char *string){
-    char* temp = (char*)malloc(strlen(string));
-    if(temp==NULL){
-        printf("error");
-        return "";
-    }
-    strcpy(temp,string);
+char* decode(char *temp){
+
     for (int i = 0; i<strlen(temp); i++) {
         if(temp[i] >= 'A' && temp[i] <= 'Z') {
             temp[i] = tolower(temp[i]);

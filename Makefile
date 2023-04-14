@@ -1,5 +1,11 @@
 CC = gcc
-all: cmp copy decode encode
+all: cmp copy decode encode libcodecA libcodecB
+
+libcodecA:
+	gcc -shared -o libcodecA.so codecA.c
+
+libcodecB:
+	gcc -shared -o libcodecB.so codecB.c
 
 encode:
 	cc -o encode encode.c
