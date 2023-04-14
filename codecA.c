@@ -27,19 +27,3 @@ char* decode(char *temp){
     }
     return temp;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
