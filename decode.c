@@ -41,9 +41,9 @@ int main(int argc, char** argv) {
         printf("error");
         return 1;
     }
-    strcpy(argv[2],temp);
+    strcpy(temp,argv[2]);
+    printf("%s\n,",argv[2]);
     (*func)(temp);
-    printf("%s",temp);
     free(temp);
     return 0;
 }
