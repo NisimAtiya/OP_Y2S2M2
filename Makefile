@@ -23,4 +23,4 @@ cmp:
 .PHONY: clean all
 
 clean:
-	rm -f copy cmp decode encode libcodecA libcodecB
+	rm -f copy cmp decode encode libcodecA.so libcodecB.so
