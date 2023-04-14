@@ -20,7 +20,6 @@ int main(int argc, char** argv) {
     } else if (strcmp(argv[1], "codecB") == 0) {
         handle = dlopen("./libcodecB.so", RTLD_LAZY);
     } else{
-        printf("atiya\n");
         printf("Usage: %s <codec> <message>\n", argv[0]);
         return 1;
     }
@@ -42,8 +41,8 @@ int main(int argc, char** argv) {
         return 1;
     }
     strcpy(temp,argv[2]);
-    printf("%s\n",argv[2]);
     (*func)(temp);
+    printf("%s\n",temp);
     free(temp);
     return 0;
 }
