@@ -1,5 +1,11 @@
 CC = gcc
-all: cmp copy
+all: cmp copy decode encode
+
+encode:
+	cc -o encode encode.c
+
+decode:
+	cc -o decode decode.c
 
 copy:
 	cc -o copy copy.c
