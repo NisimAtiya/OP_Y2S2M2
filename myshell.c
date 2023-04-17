@@ -53,6 +53,7 @@ int main() {
                 continue;
             }
         }
+        /* implementing of command '>' */
         if(strcmp(argv[1],">")==0){
             int pid = fork();
             if (pid == -1) {
@@ -76,8 +77,82 @@ int main() {
                 wait(NULL);
                 continue;
             }
+        }
+        /* implementing of command '<' */
+        if(strcmp(argv[1],"<")==0){
+            int pid = fork();
+            if (pid == -1) {
+                printf("Error: A problem executing the command\n");
+                continue;
+            }
+            /* for commands not part of the shell command language */
+            if (pid == 0) {
+                int file_des = open(argv[0], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+                if (file_des == -1) {
+                    printf("error while opening the file %s",argv[0]);
+                    continue;
+                }
+                argv[1]=NULL;
+                dup2(file_des,1);
 
+                execvp(argv[2], argv);
+                close(file_des);
+            }
+            if (pid>0){
+                wait(NULL);
+                continue;
+            }
+        }
+        /* implementing of command '>>' */
+        if(strcmp(argv[1],">>")==0){
+            int pid = fork();
+            if (pid == -1) {
+                printf("Error: A problem executing the command\n");
+                continue;
+            }
+            /* for commands not part of the shell command language */
+            if (pid == 0) {
+                int file_des = open(argv[2], O_WRONLY | O_CREAT | O_APPEND, 0777);
 
+                if (file_des == -1) {
+                    printf("error while opening the file %s",argv[2]);
+                    continue;
+                }
+                argv[1]=NULL;
+                dup2(file_des,1);
+
+                execvp(argv[0], argv);
+                close(file_des);
+            }
+            if (pid>0){
+                wait(NULL);
+                continue;
+            }
+        }
+        /* implementing of command '<<' */
+        if(strcmp(argv[1],"<<")==0){
+            int pid = fork();
+            if (pid == -1) {
+                printf("Error: A problem executing the command\n");
+                continue;
+            }
+            /* for commands not part of the shell command language */
+            if (pid == 0) {
+                int file_des = open(argv[2], O_WRONLY | O_CREAT | O_APPEND, 0777);
+                if (file_des == -1) {
+                    printf("error while opening the file %s",argv[0]);
+                    continue;
+                }
+                argv[1]=NULL;
+                dup2(file_des,1);
+
+                execvp(argv[2], argv);
+                close(file_des);
+            }
+            if (pid>0){
+                wait(NULL);
+                continue;
+            }
         }
 
 
