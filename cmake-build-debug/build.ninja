@@ -85,6 +85,12 @@ build CMakeFiles/OP_Y2S2M2.dir/encode.c.o: C_COMPILER__OP_Y2S2M2_Debug /Users/ni
   OBJECT_DIR = CMakeFiles/OP_Y2S2M2.dir
   OBJECT_FILE_DIR = CMakeFiles/OP_Y2S2M2.dir
 
+build CMakeFiles/OP_Y2S2M2.dir/myshell.c.o: C_COMPILER__OP_Y2S2M2_Debug /Users/nisimatiya/Desktop/מדעי$ המחשב/clion/Operating$ Systems/OP_Y2S2M2/myshell.c || cmake_object_order_depends_target_OP_Y2S2M2
+  DEP_FILE = CMakeFiles/OP_Y2S2M2.dir/myshell.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu11
+  OBJECT_DIR = CMakeFiles/OP_Y2S2M2.dir
+  OBJECT_FILE_DIR = CMakeFiles/OP_Y2S2M2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target OP_Y2S2M2
@@ -93,7 +99,7 @@ build CMakeFiles/OP_Y2S2M2.dir/encode.c.o: C_COMPILER__OP_Y2S2M2_Debug /Users/ni
 #############################################
 # Link the executable OP_Y2S2M2
 
-build OP_Y2S2M2: C_EXECUTABLE_LINKER__OP_Y2S2M2_Debug CMakeFiles/OP_Y2S2M2.dir/cmp.c.o CMakeFiles/OP_Y2S2M2.dir/copy.c.o CMakeFiles/OP_Y2S2M2.dir/codecA.c.o CMakeFiles/OP_Y2S2M2.dir/codecB.c.o CMakeFiles/OP_Y2S2M2.dir/decode.c.o CMakeFiles/OP_Y2S2M2.dir/encode.c.o
+build OP_Y2S2M2: C_EXECUTABLE_LINKER__OP_Y2S2M2_Debug CMakeFiles/OP_Y2S2M2.dir/cmp.c.o CMakeFiles/OP_Y2S2M2.dir/copy.c.o CMakeFiles/OP_Y2S2M2.dir/codecA.c.o CMakeFiles/OP_Y2S2M2.dir/codecB.c.o CMakeFiles/OP_Y2S2M2.dir/decode.c.o CMakeFiles/OP_Y2S2M2.dir/encode.c.o CMakeFiles/OP_Y2S2M2.dir/myshell.c.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   OBJECT_DIR = CMakeFiles/OP_Y2S2M2.dir
   POST_BUILD = :
