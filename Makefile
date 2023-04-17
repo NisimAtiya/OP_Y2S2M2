@@ -1,5 +1,9 @@
 CC = gcc
-all: cmp copy decode encode libcodecA libcodecB
+all: cmp copy decode encode libcodecA libcodecB myshell
+
+myshell:
+	cc -o myshell myshell.c
+
 
 libcodecA:
 	gcc -shared -o libcodecA.so codecA.c
@@ -23,4 +27,4 @@ cmp:
 .PHONY: clean all
 
 clean:
-	rm -f copy cmp decode encode libcodecA.so libcodecB.so
+	rm -f copy cmp decode encode libcodecA.so libcodecB.so myshell

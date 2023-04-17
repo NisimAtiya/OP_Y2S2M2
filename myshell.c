@@ -33,17 +33,54 @@ int main() {
         if (argv[0] == NULL)
             continue;
         /* supportion in command exit */
-        if (argv[0] == "exit"){
+        if (strcmp(argv[0], "exit")==0){
             printf("bye bye.\n");
-            break;
+            return 1;
+        }
+        /* got one argument command from user */
+        if(i==1) {
+            int pid = fork();
+            if (pid == -1) {
+                printf("Error: A problem executing the command\n");
+                continue;
+            }
+            /* for commands not part of the shell command language */
+            if (pid == 0) {
+                execvp(argv[0], argv);
+            }
+            if (pid>0){
+                wait(NULL);
+                continue;
+            }
+        }
+        if(strcmp(argv[1],">")==0){
+            int pid = fork();
+            if (pid == -1) {
+                printf("Error: A problem executing the command\n");
+                continue;
+            }
+            /* for commands not part of the shell command language */
+            if (pid == 0) {
+                int file_des = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+                if (file_des == -1) {
+                    printf("error while opening the file %s",argv[2]);
+                    continue;
+                }
+                argv[1]=NULL;
+                dup2(file_des,1);
+
+                execvp(argv[0], argv);
+                close(file_des);
+            }
+            if (pid>0){
+                wait(NULL);
+                continue;
+            }
+
+
         }
 
 
-        /* for commands not part of the shell command language */
-        if (fork() == 0) {
-            execvp(argv[0], argv);
-            wait(NULL);
-        }
     }
     return 1;
 
