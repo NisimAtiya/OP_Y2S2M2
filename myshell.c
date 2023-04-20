@@ -6,6 +6,26 @@
 #include "stdlib.h"
 #include "unistd.h"
 #include <string.h>
+int find(char *argv[],int end){
+    for (int i = 0; i < end; ++i) {
+        if(strcmp(argv[i],">")==0){
+            return 1;
+        }
+        if(strcmp(argv[i],">>")==0){
+            return 1;
+        }
+        if(strcmp(argv[i],"<")==0){
+            return 1;
+        }
+        if(strcmp(argv[i],"<<")==0){
+            return 1;
+        }
+        if(strcmp(argv[i],"|")==0){
+            return 1;
+        }
+    }
+    return 0;
+}
 
 int main() {
     int i;
@@ -16,7 +36,7 @@ int main() {
     while (1) {
         /* ignored control+c signal */
         signal(SIGINT,SIG_IGN);
-        printf("EN_SHELL: ");
+        printf("\nEN_SHELL: ");
         fgets(command, 1024, stdin);
         command[strlen(command) - 1] = '\0'; // replace \n with \0
 
@@ -40,7 +60,8 @@ int main() {
             return 1;
         }
         /* got one argument command from user */
-        if(i==1) {
+        if(find(argv,i)==0) {
+        	printf("in\n");
             int pid = fork();
             if (pid == -1) {
                 printf("Error: A problem executing the command\n");
@@ -150,7 +171,7 @@ int main() {
             if (pid == 0) {
                 /* back to default after control+c signal  */
                 signal(SIGINT,SIG_DFL);
-                int file_des = open(argv[2], O_WRONLY | O_CREAT | O_APPEND, 0777);
+                int file_des = open(argv[0], O_WRONLY | O_CREAT | O_APPEND, 0777);
                 if (file_des == -1) {
                     printf("error while opening the file %s",argv[0]);
                     continue;
