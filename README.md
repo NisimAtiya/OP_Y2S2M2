@@ -127,8 +127,18 @@ If you want to encode the message using "codecB", you would run the following co
 ./encoder codecB "Hello, world!"
 
 If the specified codec is not valid or there is an error loading the shared library, the program will output an error message and return a non-zero exit code.
+  
+# shell tool:
 
+Usage and System Environment This program is a shell program named stshell. The program is written in C language and can be compiled and run on a Linux system.
 
+Usage Once the program is compiled, you can run it using the following command: ./stshell
+  
+This tool Be able to run CMD tools
+This tool Be able to redirect output with “>” and “>>”, and allow piping with “|”, at least for 2 following
+pipes. For example: "ls -l | grep aaa | toilet
+This tool Be able to stop running tool by pressing Ctrl+c, but not killing the shell itself.
+To exit this tool enter the exit command
 
 
 
