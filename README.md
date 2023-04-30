@@ -5,7 +5,7 @@ make
 
 
 
-#cmp tool:
+# cmp tool:
 
 Usage and System Environment
 This program is a command-line tool that compares two files and checks whether they are equal or not. The program is written in C language and can be compiled and run on a Linux system.
